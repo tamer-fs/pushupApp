@@ -1,5 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #main-btn {
+      width: 100vw;
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+    }
+
+    #pushup-text {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 30vh;
+      font-weight: 100;
+      color: #1e1e1e;
+    }
+
+    p {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      position: absolute;
+      bottom: 10px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  </style>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,5 +50,22 @@
       </p>
     </button>
   </body>
-  <script src="/src/scripts/index.js"></script>
+  <script>
+    let pushup_count = 0;
+
+    const e_button = document.getElementById("main-btn");
+    const e_count_text = document.getElementById("pushup-text");
+
+    e_button.addEventListener("click", () => {
+      pushup_count += 1;
+      e_count_text.innerText = pushup_count;
+      check_count_size();
+    });
+
+    function check_count_size() {
+      if (pushup_count > 100 || pushup_count === 100) {
+        e_count_text.style.fontSize = "20vh";
+      }
+    }
+  </script>
 </html>
